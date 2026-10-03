@@ -94,6 +94,10 @@ jobs:
             NEW_FILE="RE-SS-01-WIFINO-$WRT_DATE-sysupgrade.bin"
             cp -f $FILE ./upload/$NEW_FILE
           done
+  for FILE in $(find ./bin/targets/ -type f -iname "*re-ss-01*factory.bin"); do
+    NEW_FILE="RE-SS-01-WIFINO-$WRT_DATE-factory.bin"
+    cp -f $FILE ./upload/$NEW_FILE
+  done
           find ./bin/targets/ -type f -iname "*.manifest" -exec cp -f {} ./upload/ \;
 
       - name: 发布 Release
