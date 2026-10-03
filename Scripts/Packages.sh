@@ -45,7 +45,7 @@ UPDATE_PACKAGE() {
 UPDATE_PACKAGE "lucky" "gdy666/luci-app-lucky" "main"
 
 # daed (kenzok8)
-UPDATE_PACKAGE "daed" "kenzok8/openwrt-daede" "master" "" "dae luci-app-daede"
+UPDATE_PACKAGE "daed" "kenzok8/openwrt-daede" "main" "" "dae luci-app-daede"
 
 # argon 主题
 UPDATE_PACKAGE "argon" "sbwml/luci-theme-argon" "openwrt-25.12"
