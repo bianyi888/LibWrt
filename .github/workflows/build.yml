@@ -89,12 +89,12 @@ jobs:
           mkdir -p ./upload/
           cp -f ./.config ./upload/Config-$WRT_CONFIG-$WRT_DATE.txt
           find ./bin/targets/ -iregex ".*\(buildinfo\|json\|sha256sums\|packages\)$" -exec rm -rf {} +
-          for FILE in $(find ./bin/targets/ -type f -iname "*re-ss-01*"); do
-            EXT=$(basename $FILE | cut -d '.' -f 2-)
-            NEW_FILE="RE-SS-01-WIFINO-$WRT_DATE.$EXT"
-            mv -f $FILE ./upload/$NEW_FILE
+          for FILE in $(find ./bin/targets/ -type f -iname "*re-ss-01*sysupgrade.bin"); do
+
+            NEW_FILE="RE-SS-01-WIFINO-$WRT_DATE-sysupgrade.bin"
+            cp -f $FILE ./upload/$NEW_FILE
           done
-          find ./bin/targets/ -type f -exec mv -f {} ./upload/ \;
+          find ./bin/targets/ -type f -iname "*.manifest" -exec cp -f {} ./upload/ \;
 
       - name: 发布 Release
         if: ${{ !inputs.TEST }}
